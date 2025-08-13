@@ -64,3 +64,16 @@ PartialDependenceDisplay.from_estimator(
 plt.suptitle("2D Partial Dependence: mean radius × mean texture")
 plt.tight_layout()
 
+
+# 4) 2D PDP (interaction surface)
+fig3 = plt.figure(figsize=(5, 4))
+PartialDependenceDisplay.from_estimator(
+    clf,
+    X_test,
+    features=[(f_idx_1, f_idx_2)],
+    feature_names=feature_names,
+    grid_resolution=30,  # default=100
+    percentiles=(0.2, 0.8)
+)
+plt.suptitle("2D Partial Dependence: mean radius × mean texture")
+plt.tight_layout()
